@@ -26,29 +26,29 @@ import pantallas.Final
 @Preview
 @Composable
 fun App() {
-        Image(
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop,
-            painter = painterResource("fondoseleccion.png"),
-            contentDescription = "descripcion")
-        Column(horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth()) {
-            Box(
-                modifier = Modifier.size(400.dp, 200.dp).padding(top = 20.dp),
+    Image(
+        modifier = Modifier.fillMaxSize(),
+        contentScale = ContentScale.Crop,
+        painter = painterResource("fondoseleccion.png"),
+        contentDescription = "descripcion")
+    Column(horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxWidth()) {
+        Box(
+            modifier = Modifier.size(400.dp, 200.dp).padding(top = 20.dp),
 
             ){
-                Image(
-                    bitmap = useResource("blastoiseback.png") { loadImageBitmap(it) },
-                    contentDescription = "hola"
-                )
+            Image(
+                bitmap = useResource("blastoiseback.png") { loadImageBitmap(it) },
+                contentDescription = "hola"
+            )
             Image(
                 bitmap = useResource("paneltexto.png") { loadImageBitmap(it) },
                 contentDescription = "logo del juego"
             )
-                Text("¡Bienvenido!", modifier = Modifier.align(Alignment.Center).padding(bottom = 110.dp))
-                Text("ELIGE A UN POKEMON PARA COMBATIR", modifier = Modifier.align(Alignment.Center).padding(bottom = 30.dp))
-            }
+            Text("¡Bienvenido!", modifier = Modifier.align(Alignment.Center).padding(bottom = 110.dp))
+            Text("ELIGE A UN POKEMON PARA COMBATIR", modifier = Modifier.align(Alignment.Center).padding(bottom = 30.dp))
         }
+    }
 }
 
 fun main() = application {
@@ -58,6 +58,8 @@ fun main() = application {
             resizable = false,
             state = WindowState(size = DpSize(800.dp, 600.dp))
     ) {
-        App()
+       
+        Final()
+
     }
 }

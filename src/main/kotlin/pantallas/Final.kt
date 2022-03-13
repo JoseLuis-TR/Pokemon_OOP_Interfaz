@@ -1,32 +1,50 @@
 package pantallas
 
+import App
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.runtime.Composable
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.useResource
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun Final()
 {
-    Box(modifier = Modifier.size(800.dp,600.dp)) {
-        Image(
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop,
-            painter = painterResource("fondoagua.png"),
-            contentDescription = "descripcion"
-        )
+    var text by remember { mutableStateOf("Reintentar") }
 
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth().fillMaxHeight()
-        ) {
-            Row() {
-                painterResource("paneltexto.png")
-            }
+    Image(
+        modifier = Modifier.fillMaxSize(),
+        contentScale = ContentScale.Crop,
+        painter = painterResource("fondoseleccion.png"),
+        contentDescription = "descripcion")
+    Column(horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxWidth()) {
+        Box(
+            modifier = Modifier.size(400.dp, 200.dp).padding(top = 50.dp),
+
+            ){
+
+            Image(
+                bitmap = useResource("paneltexto.png") { loadImageBitmap(it) },
+                contentDescription = "logo del juego"
+            )
+            Text("HAS GANADO", modifier = Modifier.align(Alignment.Center).padding(bottom = 40.dp))
+
+        }
+        Button(onClick = { text = "Animo valiente"},
+            modifier = Modifier.padding(10.dp)
+        ){
+            Text(text)
         }
     }
+
 }
+
+
