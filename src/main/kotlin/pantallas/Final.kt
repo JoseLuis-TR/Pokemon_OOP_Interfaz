@@ -15,8 +15,16 @@ import androidx.compose.ui.res.useResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Final()
+fun Final(cambiarPantalla:(Int) -> Unit)
 {
+    Box(){
+        Button(onClick = {cambiarPantalla(0)}){
+            Text("Cambiar a pantalla inicial")
+        }
+        Text("Pantalla Final",modifier = Modifier.align(Alignment.Center).padding(bottom = 30.dp))
+    }
+
+
     var text by remember { mutableStateOf("Reintentar") }
 
     Image(

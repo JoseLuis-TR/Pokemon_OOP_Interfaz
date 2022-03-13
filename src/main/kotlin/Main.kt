@@ -22,44 +22,39 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import pantallas.Final
+import pantallas.pantallaCombate
+import pantallas.pantallaInicial
 
-@Preview
+
 @Composable
 fun App() {
-    Image(
-        modifier = Modifier.fillMaxSize(),
-        contentScale = ContentScale.Crop,
-        painter = painterResource("fondoseleccion.png"),
-        contentDescription = "descripcion")
-    Column(horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxWidth()) {
-        Box(
-            modifier = Modifier.size(400.dp, 200.dp).padding(top = 20.dp),
+    Column() {
+        var pantallaSeleccionada by remember { mutableStateOf(0) }
+        val cambiarPantalla:(Int) -> Unit = {pantallaSeleccionada = it}
 
-            ){
-            Image(
-                bitmap = useResource("blastoiseback.png") { loadImageBitmap(it) },
-                contentDescription = "hola"
-            )
-            Image(
-                bitmap = useResource("paneltexto.png") { loadImageBitmap(it) },
-                contentDescription = "logo del juego"
-            )
-            Text("¡Bienvenido!", modifier = Modifier.align(Alignment.Center).padding(bottom = 110.dp))
-            Text("ELIGE A UN POKEMON PARA COMBATIR", modifier = Modifier.align(Alignment.Center).padding(bottom = 30.dp))
+        when(pantallaSeleccionada){
+            0 -> pantallaInicial(cambiarPantalla)
+            1 -> pantallaCombate(cambiarPantalla)
+            3 -> Final(cambiarPantalla)
         }
+
+        Image(
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+            painter = painterResource("fondoseleccion.png"),
+            contentDescription = "descripcion"
+        )
     }
+
 }
 
 fun main() = application {
     Window(onCloseRequest = ::exitApplication,
-            icon = painterResource("icono.png"),
-            title = "Pokemon Edicion OOP",
-            resizable = false,
-            state = WindowState(size = DpSize(800.dp, 600.dp))
+        icon = painterResource("icono.png"),
+        title = "Pokemon Edicion OOP",
+        resizable = false,
+        state = WindowState(size = DpSize(800.dp, 600.dp))
     ) {
-       
-        Final()
-
+        App()
     }
 }
