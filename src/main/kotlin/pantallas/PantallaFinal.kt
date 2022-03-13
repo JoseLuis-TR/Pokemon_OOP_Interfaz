@@ -1,6 +1,5 @@
 package pantallas
 
-import App
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -15,8 +14,15 @@ import androidx.compose.ui.res.useResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Final()
+fun pantallaFinal(cambiarPantalla:(Int) -> Unit)
 {
+    Box(){
+        Button(onClick = {cambiarPantalla(0)}){
+            Text("Estas en pantalla final, cambiar a pantalla inicial")
+        }
+    }
+
+
     var text by remember { mutableStateOf("Reintentar") }
 
     Image(
