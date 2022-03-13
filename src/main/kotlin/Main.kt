@@ -10,29 +10,41 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.useResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
+import pantallas.Final
 
-@Composable
 @Preview
+@Composable
 fun App() {
-    var text by remember { mutableStateOf("Hello, World!") }
+    var text by remember { mutableStateOf("¡Bienvenido!") }
 
-    MaterialTheme {
-        Box(modifier = Modifier.size(800.dp,600.dp)){
-            Image(
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop,
-                painter = painterResource("fondoagua.png"),
-                contentDescription = "descripcion")
+        Image(
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+            painter = painterResource("fondoseleccion.png"),
+            contentDescription = "descripcion")
+        Column(horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxWidth()) {
+            Box(
+                modifier = Modifier.size(400.dp, 200.dp).padding(top = 10.dp)
+            ){
+                text
+            //Image(
+              //  bitmap = useResource("paneltexto.png") { loadImageBitmap(it) },
+                //contentDescription = "logo del juego",
+            //)
+            }
         }
-    }
 }
 
 fun main() = application {
