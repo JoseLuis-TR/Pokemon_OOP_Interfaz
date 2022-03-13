@@ -14,12 +14,22 @@ import androidx.compose.ui.res.useResource
 import androidx.compose.ui.unit.dp
 
 @Composable
+<<<<<<<< HEAD:src/main/kotlin/pantallas/PantallaFinal.kt
 fun pantallaFinal(cambiarPantalla:(Int) -> Unit)
 {
     Box(){
         Button(onClick = {cambiarPantalla(0)}){
             Text("Estas en pantalla final, cambiar a pantalla inicial")
         }
+========
+fun Final(cambiarPantalla:(Int) -> Unit)
+{
+    Box(){
+        Button(onClick = {cambiarPantalla(0)}){
+            Text("Cambiar a pantalla inicial")
+        }
+        Text("Pantalla Final",modifier = Modifier.align(Alignment.Center).padding(bottom = 30.dp))
+>>>>>>>> ffcc19fb4f0f6ff8930ae5e116509f173cbee8a9:src/main/kotlin/pantallas/Final.kt
     }
 
 
