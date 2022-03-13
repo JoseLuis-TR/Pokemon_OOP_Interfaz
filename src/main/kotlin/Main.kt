@@ -26,8 +26,6 @@ import pantallas.Final
 @Preview
 @Composable
 fun App() {
-    var text by remember { mutableStateOf("¡Bienvenido!") }
-
         Image(
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
@@ -36,13 +34,19 @@ fun App() {
         Column(horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxWidth()) {
             Box(
-                modifier = Modifier.size(400.dp, 200.dp).padding(top = 10.dp)
+                modifier = Modifier.size(400.dp, 200.dp).padding(top = 20.dp),
+
             ){
-                text
-            //Image(
-              //  bitmap = useResource("paneltexto.png") { loadImageBitmap(it) },
-                //contentDescription = "logo del juego",
-            //)
+                Image(
+                    bitmap = useResource("blastoiseback.png") { loadImageBitmap(it) },
+                    contentDescription = "hola"
+                )
+            Image(
+                bitmap = useResource("paneltexto.png") { loadImageBitmap(it) },
+                contentDescription = "logo del juego"
+            )
+                Text("¡Bienvenido!", modifier = Modifier.align(Alignment.Center).padding(bottom = 110.dp))
+                Text("ELIGE A UN POKEMON PARA COMBATIR", modifier = Modifier.align(Alignment.Center).padding(bottom = 30.dp))
             }
         }
 }
