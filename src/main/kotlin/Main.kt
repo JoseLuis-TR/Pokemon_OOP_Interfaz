@@ -25,12 +25,13 @@ import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import pantallas.Final
 import pantallas.PantallaSeleccion
+import pantallas.PantallaCombate
 import pokemons.Pokemon
 
 @Preview
 @Composable
 fun App() {
-    PantallaSeleccion()
+    PantallaCombate()
 }
 
 fun main() = application {
