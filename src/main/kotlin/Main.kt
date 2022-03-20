@@ -19,7 +19,6 @@ import androidx.compose.ui.window.application
 import pantallas.Final
 import pantallas.PantallaCombate
 import pantallas.PantallaSeleccion
-import pokemons.Charmander
 import pokemons.Pokemon
 
 @Preview
@@ -27,10 +26,10 @@ import pokemons.Pokemon
 fun App() {
     var pantallaSeleccionada by remember { mutableStateOf(0) }
     val cambiarPantalla:(Int) -> Unit = {pantallaSeleccionada = it}
-    var pokJugador by remember { mutableStateOf<Pokemon>(Charmander()) }
+    var pokJugador by remember { mutableStateOf<Pokemon?>(null) }
     val elegirPokemon:(Pokemon)->Unit = { pokJugador = it }
 
-    var faseBatalla by remember { mutableStateOf(2) }
+    var faseBatalla by remember { mutableStateOf(0) }
 
     Image(
         modifier = Modifier.fillMaxSize(),
@@ -40,7 +39,7 @@ fun App() {
 
     when(pantallaSeleccionada){
         0 -> PantallaSeleccion(cambiarPantalla,elegirPokemon)
-        1 -> PantallaCombate(cambiarPantalla,pokJugador,faseBatalla)
+        1 -> PantallaCombate(cambiarPantalla,pokJugador!!)
         2 -> Final(cambiarPantalla)
     }
 }

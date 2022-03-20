@@ -17,6 +17,8 @@ class Charmander(nombre: Nombres = Nombres.CHARMANDER,
                  contador:Int = 0
 ): Pokemon(nombre, potenciaAtaque, vida, defensa, experiencia, tipo,debilidades, fortalezas, contador),PokFuego {
 
+    override var vidaTotal = vida
+
     //Su modificador temperatura afecta al ataque por lo que es necesario
     //hacer override de la función atacar
     override fun atacar(enemigo:Pokemon): Float

@@ -24,14 +24,14 @@ class GameManager(var jugador: Pokemon, var maquina: Pokemon)
         return "${maquina.nombre} recupera ${maquina.curar()}"
     }
 
-    fun jugadorEspecial()
+    fun jugadorEspecial(): String
     {
-        jugador.especial()
+        return jugador.especial()
     }
 
-    fun maquinaEspecial()
+    fun maquinaEspecial(): String
     {
-        maquina.especial()
+        return maquina.especial()
     }
 
     fun comprobarGanador()

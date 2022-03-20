@@ -13,8 +13,8 @@ abstract class Pokemon(var nombre: Nombres = Nombres.MISSIGNO,
                        var fortalezas: Tipos,
                        var contador:Int) {
 
+    open var vidaTotal:Float = vida
     //La vida que se modifica durante la pelea es esta variable, asi mantenemos la vida del pokemon intacta
-    var vidaTotal = vida
 
     fun saludo(): String
     {
@@ -74,6 +74,8 @@ abstract class Pokemon(var nombre: Nombres = Nombres.MISSIGNO,
     open fun danyoRecibido(danyo:Float): Float
     {
         vidaTotal -= danyo
+        if(vidaTotal < 0)
+            vidaTotal = 0f
         return danyo
     }
 

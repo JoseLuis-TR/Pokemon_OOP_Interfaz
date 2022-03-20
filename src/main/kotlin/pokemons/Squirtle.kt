@@ -17,11 +17,15 @@ class Squirtle(nombre: Nombres = Nombres.SQUIRTLE,
                contador:Int = 0
 ): Pokemon(nombre,potenciaAtaque,vida,defensa,experiencia,tipo,debilidades,fortalezas,contador),PokAgua {
 
+    override var vidaTotal = vida
+
     //Su modificador tiempoSumergido afecta a la defensa por lo que es necesario
     //hacer override de la función danyoRecibido
     override fun danyoRecibido(danyo:Float): Float {
         var danyoTotal = danyo + (danyo * (0 + (tiempoSumergido/10)))
         vidaTotal -= danyoTotal
+        if(vidaTotal < 0f)
+            vidaTotal = 0f
         return danyoTotal
     }
 

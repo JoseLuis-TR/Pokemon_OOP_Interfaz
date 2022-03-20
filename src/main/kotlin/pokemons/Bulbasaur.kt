@@ -12,10 +12,12 @@ class Bulbasaur(nombre: Nombres = Nombres.BULBASAUR,
                 tipo: Tipos = Tipos.PLANTA,
                 debilidades: Tipos = Tipos.FUEGO,
                 fortalezas: Tipos = Tipos.AGUA,
-                override var tiempoAlSol: Int= 0,
-                override var limite: Int = 3,
+                override var tiempoAlSol: Float= 0f,
+                override var limite: Float = 3f,
                 contador:Int = 0
 ):Pokemon(nombre, potenciaAtaque, vida, defensa, experiencia, tipo, debilidades, fortalezas, contador),PokPlanta {
+
+    override var vidaTotal = vida
 
     //Su modificador tiempoAlSol afecta al ataque por lo que es necesario
     //hacer override de la función atacar

@@ -2,9 +2,9 @@ package interfacesTipos
 
 interface PokPlanta {
     //tiempoAlSol marca el modificador en ataque por el movimiento especial
-    var tiempoAlSol:Int
+    var tiempoAlSol:Float
     //limite marca el limite, si se llega el Pokemon pierde el modificador
-    var limite:Int
+    var limite:Float
 
     //Modifica tiempoAlSol dependiendo de si llega al limite o no
     //si se llega al limite, elimina automaticamente el modificador con fueraSol()
@@ -27,7 +27,7 @@ interface PokPlanta {
     //Devuelve directamente a 0 el modificador
     fun fueraSol()
     {
-        tiempoAlSol = 0
+        tiempoAlSol = 0f
     }
 
     //Es la función usada para bajar x puntos el modificador de este pokemon
