@@ -1,6 +1,6 @@
 package pantallas
 
-import App
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -8,22 +8,15 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.loadImageBitmap
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Final()
+fun Final(cambiarPantalla:(Int) -> Unit)
 {
     var text by remember { mutableStateOf("Reintentar") }
 
-    Image(
-        modifier = Modifier.fillMaxSize(),
-        contentScale = ContentScale.Crop,
-        painter = painterResource("fondoseleccion.png"),
-        contentDescription = "descripcion")
     Column(horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxWidth()) {
         Box(
@@ -33,12 +26,12 @@ fun Final()
 
             Image(
                 bitmap = useResource("paneltexto.png") { loadImageBitmap(it) },
-                contentDescription = "logo del juego"
+                contentDescription = "Panel de Texto"
             )
             Text("HAS GANADO", modifier = Modifier.align(Alignment.Center).padding(bottom = 40.dp))
 
         }
-        Button(onClick = { text = "Animo valiente"},
+        Button(onClick = { cambiarPantalla(0)},
             modifier = Modifier.padding(10.dp)
         ){
             Text(text)
