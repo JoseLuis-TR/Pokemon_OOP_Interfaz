@@ -24,12 +24,11 @@ import pokemons.Pokemon
 @Preview
 @Composable
 fun App() {
+    //El centro desde donde se comienza el juego y sirve como cambio de pantallas
     var pantallaSeleccionada by remember { mutableStateOf(0) }
     val cambiarPantalla:(Int) -> Unit = {pantallaSeleccionada = it}
     var pokJugador by remember { mutableStateOf<Pokemon?>(null) }
     val elegirPokemon:(Pokemon)->Unit = { pokJugador = it }
-
-    var faseBatalla by remember { mutableStateOf(0) }
 
     Image(
         modifier = Modifier.fillMaxSize(),
@@ -40,7 +39,8 @@ fun App() {
     when(pantallaSeleccionada){
         0 -> PantallaSeleccion(cambiarPantalla,elegirPokemon)
         1 -> PantallaCombate(cambiarPantalla,pokJugador!!)
-        2 -> Final(cambiarPantalla)
+        2 -> Final(cambiarPantalla,true)
+        3 -> Final(cambiarPantalla,false)
     }
 }
 
