@@ -33,14 +33,4 @@ class GameManager(var jugador: Pokemon, var maquina: Pokemon)
     {
         return maquina.especial()
     }
-
-    fun comprobarGanador()
-    {
-        if(jugador.vida <= 0)
-            println("${maquina.nombre} ha ganado")
-        else if(maquina.vida <= 0)
-            println("${jugador.vida}")
-        else
-            println("No gana ni uno ni otro")
-    }
 }

@@ -84,20 +84,23 @@ fun PantallaCombate(cambiarPantalla:(Int) -> Unit, pokJugador:Pokemon)
                 if ((vidaTotalEnemigo * 100) / enemigo.vida < 50f)
                     when (eleccionMaquina) {
                         1, 10 -> mensaje = "${enemigo.nombre} ha fallado su ataque"
-                        in 2..6 -> mensaje = gameManager.maquinaCura()
+                        in 2..5 -> mensaje = gameManager.maquinaCura()
+                        6 -> mensaje = gameManager.maquinaEspecial()
                         in 7..8 -> mensaje = gameManager.maquinaAtaca()
                     }
                 else if ((vidaTotalEnemigo * 100) / enemigo.vida > 50 && fase < 2)
                     when (eleccionMaquina) {
                         1, 10 -> mensaje = "${enemigo.nombre} ha fallado su ataque"
-                        in 2..6 -> mensaje = gameManager.maquinaAtaca()
+                        in 2..5 -> mensaje = gameManager.maquinaAtaca()
+                        6 -> mensaje = gameManager.maquinaEspecial()
                         in 7..8 -> mensaje = gameManager.maquinaCura()
                     }
                 else {
                     when (eleccionMaquina) {
                         1, 5, 10 -> mensaje = "${enemigo.nombre} ha fallado su ataque"
                         in 2..4 -> mensaje = gameManager.maquinaAtaca()
-                        in 6..9 -> mensaje = gameManager.maquinaCura()
+                        6 -> mensaje = gameManager.maquinaEspecial()
+                        in 5..9 -> mensaje = gameManager.maquinaCura()
                     }
                 }
                 refrescarInterfaz()

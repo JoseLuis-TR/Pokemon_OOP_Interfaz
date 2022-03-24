@@ -1,6 +1,5 @@
 // Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
 
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -21,7 +20,6 @@ import pantallas.PantallaCombate
 import pantallas.PantallaSeleccion
 import pokemons.Pokemon
 
-@Preview
 @Composable
 fun App() {
     //El centro desde donde se comienza el juego y sirve como cambio de pantallas
